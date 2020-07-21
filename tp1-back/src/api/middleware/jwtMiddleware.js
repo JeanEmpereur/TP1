@@ -4,6 +4,7 @@ exports.verify_token = (req, res, next) => {
   let token = req.headers['authorization'];
 
   if(typeof token !== 'undefined'){
+    console.log(token);
     jwt.verify(token, process.env.JWT_KEY, (error, authData) => {
       if(error){
         res.status(401);
